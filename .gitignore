@@ -1,0 +1,8 @@
+
+cover/
+venv/
+.coverage
+
+output.csv
+
+*.pyc
