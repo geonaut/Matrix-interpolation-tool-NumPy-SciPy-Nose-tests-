@@ -25,7 +25,7 @@ def parseMatrix(file):
     return array
 
 
-def interpolateMatrix(array,int_method='linear'):
+def interpolateMatrix(array, int_method='linear'):
     """Function for interpolating missing values in a 2D matrix (ndarray).
 
     Args:
@@ -45,21 +45,26 @@ def interpolateMatrix(array,int_method='linear'):
         elif int_method == 'nearest':
             pass
         else:
-            raise ValueError("The interpolation method must be one of: linear, cubic, nearest. '%s' is invalid" %int_method)
+            raise ValueError(
+                "The interpolation method must be one of: linear, cubic, nearest. '%s' is invalid" % int_method)
 
-
+    # return x axis of array
     x = np.arange(0, array.shape[1])
+    # return y axis of array
     y = np.arange(0, array.shape[0])
 
+    # mask NaNs
     array = np.ma.masked_invalid(array)
+    # create full grid of x & y values
     xx, yy = np.meshgrid(x, y)
 
+    # flatten to list
     x1 = xx[~array.mask]
     y1 = yy[~array.mask]
     newarr = array[~array.mask]
 
     interpolated_matrix = interpolate.griddata((x1, y1), newarr.ravel(),
-                               (xx, yy),
-                               method=int_method)
+                                               (xx, yy),
+                                               method=int_method)
 
     np.savetxt("output.csv", interpolated_matrix, delimiter=",")
