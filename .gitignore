@@ -1,6 +1,5 @@
 
 cover/
-venv/
 .coverage
 
 output.csv
