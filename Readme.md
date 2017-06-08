@@ -8,10 +8,10 @@ It is based on Python 3.6. I have put the file in a Python 3 venv, so the Python
 Using the code:
 ===============
 
-Activate the venv: `source venv/bin/activate`
-Run the code: `python run.py`
-Run the tests: `nosetests`
-Run the tests with coverage: `nosetests --with-coverage --cover-erase --cover-package=interpolation_tool --cover-html`
+-  Activate the venv: `source venv/bin/activate`
+-  Run the code: `python run.py`
+-  Run the tests: `nosetests`
+-  Run the tests with coverage: `nosetests --with-coverage --cover-erase --cover-package=interpolation_tool --cover-html`
 
 Notes:
 ======
